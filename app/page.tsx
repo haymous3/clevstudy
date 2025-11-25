@@ -160,7 +160,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-purple-50">
+      {/* <section className="py-20 bg-purple-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#312450] mb-4">Student Success Stories</h2>
@@ -191,7 +191,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-20 md:py-32 bg-gradient-to-r from-[#312450] to-[#4a3570] text-white">
