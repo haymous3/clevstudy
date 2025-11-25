@@ -105,9 +105,9 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             {[
-              { number: "10K+", label: "Active Students" },
-              { number: "500+", label: "Courses" },
-              { number: "100+", label: "Expert Instructors" },
+              { number: "10+", label: "Active Students" },
+              { number: "50+", label: "Courses" },
+              { number: "10+", label: "Expert Instructors" },
               { number: "95%", label: "Success Rate" },
             ].map((stat, i) => (
               <div key={i} className="animate-fade-in" style={{animationDelay: `${i * 0.1}s`}}>
