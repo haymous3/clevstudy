@@ -18,13 +18,13 @@ export default function Home() {
         <nav className="relative z-10 container mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div className="text-2xl font-bold tracking-tight">
-              <span className="bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">ClevLearning</span>
+              <span className="bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">ClevStudy</span>
             </div>
             <div className="hidden md:flex space-x-8 items-center">
-              <a href="#" className="hover:text-purple-200 transition-colors">Courses</a>
+              {/* <a href="#" className="hover:text-purple-200 transition-colors">Courses</a>
               <a href="#" className="hover:text-purple-200 transition-colors">Features</a>
               <a href="#" className="hover:text-purple-200 transition-colors">Pricing</a>
-              <a href="#" className="hover:text-purple-200 transition-colors">About</a>
+              <a href="#" className="hover:text-purple-200 transition-colors">About</a> */}
               <button className="bg-white text-[#312450] px-6 py-2 rounded-full font-semibold hover:bg-purple-100 transition-all transform hover:scale-105">Sign Up</button>
             </div>
           </div>
@@ -211,7 +211,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">ClevLearning</h3>
+              <h3 className="text-2xl font-bold mb-4">ClevStudy</h3>
               <p className="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             <div>
@@ -242,7 +242,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>© 2025 ClevLearning. All rights reserved.</p>
+            <p>© 2025 ClevStudy. All rights reserved.</p>
           </div>
         </div>
       </footer>
