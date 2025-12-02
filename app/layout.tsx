@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ClevLearning - Transform Your Learning Journey",
+  title: "ClevStudy - Transform Your Learning Journey",
   description: "Join thousands of students in mastering new skills with expert-led courses, certifications, and community support.",
 };
 

@@ -1,13 +1,40 @@
+'use client';
+
 import Image from "next/image";
 import Image1 from "@/public/image_1.jpeg"
 import Image2 from "@/public/image_2.jpeg"
 import Image3 from "@/public/image_3.jpeg"
 import Image4 from "@/public/image_4.jpeg"
+import { useState } from "react";
+
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Form submitted:', formData);
+    // Reset form and close modal
+    setFormData({ email: '', phone: '', message: '' });
+    setIsModalOpen(false);
+    alert('Thank you for your interest! We\'ll be in touch soon.');
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#312450] via-[#4a3570] to-[#312450] text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#312450] via-[#4a3570] to-[#312450] text-white min-h-screen flex flex-col">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -25,13 +52,18 @@ export default function Home() {
               <a href="#" className="hover:text-purple-200 transition-colors">Features</a>
               <a href="#" className="hover:text-purple-200 transition-colors">Pricing</a>
               <a href="#" className="hover:text-purple-200 transition-colors">About</a> */}
-              <button className="bg-white text-[#312450] px-6 py-2 rounded-full font-semibold hover:bg-purple-100 transition-all transform hover:scale-105">Sign Up</button>
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-white text-[#312450] px-6 py-2 rounded-full font-semibold hover:bg-purple-100 transition-all transform hover:scale-105"
+              >
+                Request Early Access
+              </button>
             </div>
           </div>
         </nav>
 
         {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-6 py-20 md:py-32">
+        <div className="relative z-10 container mx-auto px-6 flex-1 flex items-center">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-fade-in">
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
@@ -42,12 +74,12 @@ export default function Home() {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-white text-[#312450] px-8 py-4 rounded-full font-semibold text-lg hover:bg-purple-100 transition-all transform hover:scale-105 shadow-2xl">
-                  Get Started Free
+                <button  onClick={() => setIsModalOpen(true)} className="bg-white text-[#312450] px-8 py-4 rounded-full font-semibold text-lg hover:bg-purple-100 transition-all transform hover:scale-105 shadow-2xl">
+                  Request Early Access
                 </button>
-                <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition-all transform hover:scale-105">
+                {/* <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition-all transform hover:scale-105">
                   Watch Demo
-                </button>
+                </button> */}
               </div>
             </div>
             <div className="relative">
@@ -74,7 +106,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 md:py-32 container mx-auto px-6">
+      {/* <section className="py-20 md:py-32 container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-[#312450] mb-4">Why Choose Us</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -98,10 +130,10 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-r from-[#312450] to-[#4a3570] text-white">
+      {/* <section className="py-20 bg-gradient-to-r from-[#312450] to-[#4a3570] text-white">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             {[
@@ -117,10 +149,10 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Popular Courses */}
-      <section className="py-20 md:py-32 container mx-auto px-6">
+      {/* <section className="py-20 md:py-32 container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[#312450] mb-4">Popular Courses</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -157,7 +189,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials */}
       {/* <section className="py-20 bg-purple-50">
@@ -194,7 +226,7 @@ export default function Home() {
       </section> */}
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-r from-[#312450] to-[#4a3570] text-white">
+      {/* <section className="py-20 md:py-32 bg-gradient-to-r from-[#312450] to-[#4a3570] text-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">Ready to Start Learning?</h2>
           <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
@@ -204,10 +236,10 @@ export default function Home() {
             Join Now - It's Free!
           </button>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
-      <footer className="bg-[#07030d] text-white py-12">
+      {/* <footer className="bg-[#07030d] text-white py-12">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
@@ -245,7 +277,81 @@ export default function Home() {
             <p>© 2025 ClevStudy. All rights reserved.</p>
           </div>
         </div>
-      </footer>
+      </footer> */}
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm" onClick={() => setIsModalOpen(false)}>
+          <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl animate-fade-in" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold text-[#312450]">Request Early Access</h2>
+              <button 
+                onClick={() => setIsModalOpen(false)}
+                className="text-gray-400 hover:text-gray-600 text-2xl font-bold"
+              >
+                ×
+              </button>
+            </div>
+            
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#312450] focus:border-transparent outline-none transition-all"
+                  placeholder="your@email.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#312450] focus:border-transparent outline-none transition-all"
+                  placeholder="+1 (555) 000-0000"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#312450] focus:border-transparent outline-none transition-all resize-none"
+                  placeholder="Tell us about your interest..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-[#312450] text-white py-3 rounded-lg font-semibold hover:bg-[#4a3570] transition-all transform hover:scale-105 shadow-lg"
+              >
+                Submit Request
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
